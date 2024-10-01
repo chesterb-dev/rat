@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT Utilities</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="styles/rat.css" />
+</head>
+
+<body class="mb-3">
+  <nav class="navbar navbar-expand bg-body-secondary mb-3">
+    <div class="container-fluid">
+      <a class="navbar-brand">IT Utilities</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">RAT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./reversa.html">Reversa</a>
+          </li>
+        </ul>
+        <!-- <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form> -->
+      </div>
+    </div>
+    <div class="d-flex pe-2">
+      <input type="file" id="uploadFile">
+    </div>
+  </nav>
+  <div class="container bg-body-secondary p-3 rounded-2">
+    <nav class="my-4">
+      <div class="fs-5">Formulário de Carta Reversa</div>
+    </nav>
+    <form id="form">
+      <div class="row">
+        <div class="col-2">
+          <h6>Coleta</h6>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <label class="form-label" for="coleta_objeto">Objeto
+              </label>
+              <input class="form-control" type="text" id="coleta_objeto" name="coleta_objeto" />
+            </div>
+            <div class="col">
+              <label class="form-label" for="coleta_numero">Coleta</label>
+              <input class="form-control" type="number" id="coleta_numero" name="coleta_numero" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+      <div class="row">
+        <div class="col-2">
+          <h6>Remetente</h6>
+        </div>
+        <div class="col">
+          <div class="row mb-3">
+            <div class="col">
+              <select class="form-select" id="remetentes">
+                <option value="0" selected>Selecione um remetente</option>
+              </select>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <label class="form-label" for="remetente_">Nome</label>
+              <input class="form-control" type="text" id="remetente_nome" name="remetente_nome" />
+            </div>
+            <div class="col">
+              <label class="form-label" for="remetente_cnpj">CNPJ
+              </label>
+              <input class="form-control" type="text" id="remetente_cnpj" name="remetente_cnpj" />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <label class="form-label" for="remetente_endereco">Endereço</label>
+              <input class="form-control" type="text" id="remetente_endereco" name="remetente_endereco" />
+            </div>
+            <div class="col">
+              <label class="form-label" for="remetente_bairro">Bairro</label>
+              <input class="form-control" type="text" id="remetente_bairro" name="remetente_bairro" />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <label class="form-label" for="remetente_cidade">Cidade</label>
+              <input class="form-control" type="text" id="remetente_cidade" name="remetente_cidade" />
+            </div>
+            <div class="col">
+              <label class="form-label" for="remetente_uf">UF</label>
+              <input class="form-control" type="text" id="remetente_uf" name="remetente_uf" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label class="form-label" for="remetente_cep">CEP</label>
+              <input class="form-control" type="text" id="remetente_cep" name="remetente_cep" />
+            </div>
+            <div class="col">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="row">
+        <div class="col-2">
+          <h6>Destinatário</h6>
+        </div>
+        <div class="col">
+          <div class="row mb-3">
+            <div class="col">
+              <select class="form-select" id="destinatarios">
+                <option value="0" selected>Selecione um destinatário</option>
+              </select>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <label class="form-label" for="destinatario_nome">Nome
+              </label>
+              <input class="form-control" type="text" id="destinatario_nome" name="destinatario_nome" />
+            </div>
+            <div class="col">
+              <label class="form-label" for="destinatario_cnpj">CNPJ
+              </label>
+              <input class="form-control" type="text" id="destinatario_cnpj" name="destinatario_cnpj" />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <label class="form-label" for="destinatario_endereco">Endereço
+              </label>
+              <input class="form-control" type="text" id="destinatario_endereco" name="destinatario_endereco" />
+            </div>
+            <div class="col">
+              <label class="form-label" for="destinatario_bairro">Bairro
+              </label>
+              <input class="form-control" type="text" id="destinatario_bairro" name="destinatario_bairro" />
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col">
+              <label class="form-label" for="destinatario_cidade">Cidade
+              </label>
+              <input class="form-control" type="text" id="destinatario_cidade" name="destinatario_cidade" />
+            </div>
+            <div class="col">
+              <label class="form-label" for="destinatario_uf">UF
+              </label>
+              <input class="form-control" type="text" id="destinatario_uf" name="destinatario_uf" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label class="form-label" for="destinatario_cep">CEP</label>
+              <input class="form-control" type="text" id="destinatario_cep" name="destinatario_cep" />
+            </div>
+            <div class="col"></div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="row">
+        <div class="col-2">
+          <h6>Responsável TJSP</h6>
+        </div>
+        <div class="col">
+          <div class="row mb-3">
+            <div class="col">
+              <label class="form-label" for="usuario_nome">Nome</label>
+              <input class="form-control" type="text" id="usuario_nome" name="usuario_nome" />
+            </div>
+            <div class="col">
+              <label class="form-label" for="usuario_matricula">Matrícula
+              </label>
+              <input class="form-control" type="text" id="usuario_matricula" name="usuario_matricula" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label class="form-label" for="usuario_cargo">Cargo</label>
+              <input class="form-control" type="text" id="usuario_cargo" name="usuario_cargo" />
+            </div>
+            <div class="col">
+              <label class="form-label" for="usuario_setor">Setor</label>
+              <input class="form-control" type="text" id="usuario_setor" name="usuario_setor" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="row">
+        <div class="col-2">
+          <h6>Técnico</h6>
+        </div>
+        <div class="col">
+          <div class="row mb-3">
+            <div class="col">
+              <select class="form-select" id="tecnicos">
+                <option value="0" selected>Selecione um técnico</option>
+              </select>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <label class="form-label" for="tecnico_nome">Nome </label>
+              <input class="form-control" type="text" id="tecnico_nome" name="tecnico_nome" />
+            </div>
+            <div class="col">
+              <label class="form-label" for="tecnico_rg">RG </label>
+              <input class="form-control" type="text" id="tecnico_rg" name="tecnico_rg" />
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="col">
+              <label class="form-label" for="tecnico_cargo">Cargo </label>
+              <input class="form-control" type="text" id="tecnico_cargo" name="tecnico_cargo" />
+            </div>
+            <div class="col"></div>
+          </div> -->
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="row">
+        <div class="col-2">
+          <h6>Equipamento</h6>
+        </div>
+        <div class="col">
+          <div class="row text-end">
+            <div class="col"></div>
+            <div class="col">
+              <button type="button" class="btn btn-primary" id="searchEquipamento">
+                <i class="bi bi-search"></i>
+                Buscar RAT
+              </button>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <label class="form-label" for="equipamento_chamado">Chamado IT2B
+              </label>
+              <input class="form-control" type="text" id="equipamento_chamado" name="equipamento_chamado" />
+            </div>
+            <div class="col">
+              <label class="form-label" for="equipamento_patrimonio">Patrimônio
+              </label>
+              <input class="form-control" type="text" id="equipamento_patrimonio" name="equipamento_patrimonio" />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <label class="form-label" for="equipamento_descricao">Descrição
+              </label>
+              <input class="form-control" type="text" id="equipamento_descricao" name="equipamento_descricao" />
+            </div>
+            <div class="col">
+              <label class="form-label" for="equipamento_valor_unitario">Valor unitário
+              </label>
+              <input class="form-control" type="number" id="equipamento_valor_unitario"
+                name="equipamento_valor_unitario" />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <label class="form-label" for="equipamento_nf">Nota Fiscal IT2B
+              </label>
+              <input class="form-control" type="text" id="equipamento_nf" name="equipamento_nf" />
+            </div>
+            <div class="col">
+              <label class="form-label" for="equipamento_data_nf">Data Nota Fiscal IT2B
+              </label>
+              <input class="form-control" type="date" id="equipamento_data_nf" name="equipamento_data_nf" />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <label class="form-label" for="equipamento_quantidade">Quantidade
+              </label>
+              <input class="form-control" type="number" id="equipamento_quantidade" name="equipamento_quantidade" />
+            </div>
+            <div class="col">
+              <label class="form-label" for="equipamento_peso">Peso (g)
+              </label>
+              <input class="form-control" type="number" id="equipamento_peso" name="equipamento_peso" />
+            </div>
+          </div>
+          <div class="row mb-3 text-end">
+            <div class="col">
+              <button type="button" class="btn btn-primary" id="addEquipamento">
+                Add equipamento
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3 mx-0">
+          <div class="col">
+            <table class="table table-hover">
+              <thead>
+                <tr class="table-secondary">
+                  <th scope="col">Chamado</th>
+                  <th scope="col">Patrimônio</th>
+                  <th scope="col">Descrição</th>
+                  <th scope="col">Valor unit.</th>
+                  <th scope="col">NF</th>
+                  <th scope="col">Data NF</th>
+                  <th scope="col">QTD</th>
+                  <th scope="col">Peso</th>
+                  <!-- <th scope="col">Editar</th> -->
+                  <th scope="col">Excluir</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <!-- <div class="float-end d-none">
+            <button type="button" class="btn btn-secondary">Close</button>
+            <button type="button" class="btn btn-primary" id="AddEquipamento">
+              Add equipamento
+            </button>
+          </div> -->
+
+      </div>
+      <div class="row">
+        <div class="col text-end">
+          <button type="button" class="btn btn-light" id="btnPrintDeclaracao">
+            <i class="bi bi-printer"></i> Declaração Correios
+          </button>
+          <button type="button" class="btn btn-light" id="btnPrintReversa">
+            <i class="bi bi-printer"></i> Carta Reversa
+          </button>
+          <button type="button" class="btn btn-light" id="btnPrintEtiqueta">
+            <i class="bi bi-printer"></i> Etiqueta
+          </button>
+        </div>
+      </div>
+    </form>
+    <!-- Modal -->
+    <div class="modal fade" id="rat" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">
+              Consultar RAT's
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- <div class="my-4 d-flex justify-content-between align-items-center">
+              <div class="fs-5">Relatório de Atendimento Técnico (RAT)</div>
+            </div> -->
+            <div class="mb-3 d-flex justify-content-center">
+              <div class="align-self-center me-2">
+                <i class="bi bi-funnel"></i>
+              </div>
+              <div class="me-2">
+                <input id="searchByTicket" onkeyup="searchRat(event)" class="form-control" type="search"
+                  placeholder="Chamado IT2B" />
+              </div>
+              <!-- <div>
+                <select class="form-select" id="equipamento">
+                  <option selected>Equipamento</option>
+                </select>
+              </div> -->
+            </div>
+            <table class="table table-hover">
+              <thead>
+                <tr class="table-secondary">
+                  <th scope="col">Chamado IT2B</th>
+                  <th scope="col">Cidade</th>
+                  <th scope="col">Tipo Equipamento</th>
+                  <th scope="col">Anormalidade</th>
+                  <th scope="col">Técnico</th>
+                  <th scope="col">Data fech.</th>
+                  <th scope="col">Selecionar</th>
+                </tr>
+              </thead>
+              <tbody id="ratList"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="scripts/reversa.js"></script>
+</body>
+
+</html>

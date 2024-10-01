@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAT</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Arial', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Trebuchet MS', sans-serif;
+    }
+
+    table {
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    input {
+      width: 100%;
+      border: none;
+    }
+
+    .col {
+      width: 65px;
+    }
+
+    .border-start {
+      border-top: 1px solid;
+      border-left: 1px solid;
+      border-right: 1px solid;
+    }
+
+    .border-middle {
+      border-left: 1px solid;
+      border-right: 1px solid;
+    }
+
+    .border-end {
+      border-bottom: 1px solid;
+      border-left: 1px solid;
+      border-right: 1px solid;
+    }
+
+    .mark {
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-size: 30px;
+    }
+
+    td.info {
+      font-weight: bold;
+      text-align: end;
+    }
+
+    span {
+      margin-left: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <thead>
+    </thead>
+    <tbody>
+      <tr class="separator">
+        <td class="col"></td>
+        <td class="col"></td>
+        <td class="col"></td>
+        <td class="col"></td>
+        <td class="col"></td>
+        <td class="col"></td>
+        <td class="col"></td>
+        <td class="col"></td>
+        <td class="col"></td>
+      </tr>
+      <!-- DADOS REMETENTE -->
+      <tr class="border-start">
+        <td colspan="2" class="info">REMETENTE: </td>
+        <td colspan="7">
+          <span id="tecnico_nome"></span>
+        </td>
+      </tr>
+      <tr class="border-middle">
+        <td colspan="2"></td>
+        <td colspan="7">
+          <span id="remetente_nome"></span>
+        </td>
+      </tr>
+      <tr class="border-middle">
+        <td colspan="2" class="info">ENDEREÇO: </td>
+        <td colspan="8">
+          <span id="remetente_endereco"></span>
+      </tr>
+      <tr colspan="9" class="border-middle">
+        <td colspan="2" class="info">
+          BAIRRO:
+        </td>
+        <td colspan="7">
+          <span id="remetente_bairro"></span>
+        </td>
+      </tr>
+      <tr colspan="9" class="border-end">
+        <td colspan="2" class="info">
+          CEP:
+        </td>
+        <td colspan="7">
+          <span id="remetente_cep"></span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="9">&nbsp;</td>
+      </tr>
+      <!-- DESTINATÁRIO -->
+      <tr class="border-start">
+        <td colspan="2" class="info">DESTINATÁRIO</td>
+        <td colspan="7">
+          <span id="destinatario_nome"></span>
+        </td>
+      </tr>
+      <tr class="border-middle">
+        <td colspan="2" class="info">
+          ENDEREÇO:
+        </td>
+        <td colspan="7">
+          <span id="destinatario_endereco"></span>
+        </td>
+      </tr>
+      <tr class="border-middle">
+        <td colspan="2" class="info">
+          BAIRRO:
+        </td>
+        <td colspan="7">
+          <span id="destinatario_bairro"></span>
+        </td>
+      </tr>
+      <tr class="border-middle">
+        <td colspan="2" class="info">
+          CEP:
+        </td>
+        <td colspan="7">
+          <span id="destinatario_cep"></span>
+        </td>
+      </tr>
+      <tr class="border-middle">
+        <td colspan="2" class="info">
+          CNPJ:
+        </td>
+        <td colspan="7">
+          <span id="destinatario_cnpj"></span>
+        </td>
+      </tr>
+      <tr class="border-middle">
+        <td colspan="2" class="info">
+          OBJETO:
+        </td>
+        <td colspan="7">
+          <span id="coleta_objeto"></span>
+        </td>
+      </tr>
+      <tr class="border-end">
+        <td colspan="2" class="info">
+          COLETA:
+        </td>
+        <td colspan="7">
+          <span id="coleta_numero"></span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="9">&nbsp;</td>
+      </tr>
+      <tr class="mark">
+        <td colspan="9">IT2B TECNOLOGIA E SERVIÇOS LTDA</td>
+      </tr>
+    </tbody>
+
+  </table>
+</body>
+
+</html>

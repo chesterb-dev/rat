@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta Reversa</title>
+    <style>
+        * {
+            font-family: Verdana;
+            box-sizing: border-box;
+            border-collapse: collapse;
+            margin: 0;
+            padding: 0;
+        }
+
+        #paper {
+            padding: 1cm 1.84cm 2.5cm 3cm;
+            background-image: url("tjsp_background.png");
+            background-size: 14.98cm 10.59cm;
+            background-repeat: no-repeat;
+            background-position: 50% 51%;
+            width: 21.59cm;
+            height: 27.94cm;
+        }
+
+        #header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        #header-text {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 8pt;
+            letter-spacing: 2.4pt;
+            margin-left: 5px;
+            line-height: .40cm;
+            color: rgb(89, 89, 89);
+        }
+
+        .w-100 {
+            width: 100%;
+        }
+
+        #img_header>img {
+            width: 2.62cm;
+            height: 1.85cm;
+            margin-right: 2px;
+        }
+
+        .fs-10pt {
+            font-size: 10pt;
+        }
+
+        table {
+            text-transform: uppercase;
+        }
+
+        th {
+            font-size: 9pt;
+        }
+
+        td {
+            font-size: 11pt;
+        }
+
+        th,
+        td {
+            font-family: 'Calibri';
+            border: 1px solid;
+            text-align: center;
+            height: 0.57cm;
+        }
+
+        .line {
+            position: relative;
+            bottom: 10px;
+            border-bottom: 1px solid;
+            box-shadow: 0px 3px 3px 0px #888888;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-justified {
+            text-align: justify;
+        }
+
+        .col-2 {
+            width: 2cm;
+        }
+
+        .col-1p75 {
+            width: 1.75cm;
+        }
+
+        .col-2p25 {
+            width: 2.25cm;
+        }
+
+        .col-5p5 {
+            width: 5.5cm;
+        }
+
+        .col-1p25 {
+            width: 1.25cm;
+        }
+
+        .col-1p99 {
+            width: 1.99cm;
+        }
+
+        .whitespace {
+            color: white;
+        }
+
+        #remetente_cidade {
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="paper">
+        <div id="inside-paper">
+            <div id="header">
+                <div id="img_header">
+                    <img src="tjsp_header.png" alt="" srcset="">
+                </div>
+                <div id="header-text">TRIBUNAL DE JUSTIÇA DE SÃO PAULO<br>PODER JUDICIÁRIO</div>
+            </div>
+            <div class="w-100 line"></div>
+            <div>
+                <div class="fs-10pt">
+                    <pre>
+
+
+<b>Remetente:</b>
+Razão Social: São Paulo Tribunal de Justiça <b>(Comarca <span id="remetente_cidade" name="remetente_cidade"></span>)</b>
+Endereço: Praça da Sé, SN<span class="whitespace">____________</span>CEP: 
+Cidade: São Paulo<span class="whitespace">___________________</span>Estado: SP
+CNPJ: 51.174.0001/0001-93
+
+<b>Destinatário:</b>
+Razão Social: IT2B Tecnologia e Serviços Ltda.
+Endereço: Rua Adelino Cardana, 293 - Sala 311/312 - Bethaville<span class="whitespace">_____</span>CEP: 06401-147
+Cidade: Barueri<span class="whitespace">_______________________________</span>Estado: São Paulo
+CNPJ: 04.392.420/0002-00
+
+
+
+</pre>
+                </div>
+
+                <p class="text-center fs-10pt">DECLARAÇÃO DE MOVIMENTAÇÃO DE EQUIPAMENTOS</p>
+                <br>
+                <p class="text-justified fs-10pt">
+                    <span class="whitespace">_____</span>
+                    O Tribunal de Justiça do Estado de São Paulo é isento do pagamento do Imposto
+                    sobre Circulação de
+                    Mercadorias e Serviços (ICMS). Por essa razão, ele não precisa se inscrever no Cadastro Estadual
+                    de
+                    Contribuintes da Secretaria da Fazenda do Estado de São Paulo e nem emitir documentos fiscais
+                    conforme previsto pela legislação de ICMS. Em decorrência dessa isenção, o Tribunal também está
+                    dispensado das obrigações fiscais correspondentes.
+                </p>
+                <br>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="col-2">Nº DO CHAMADO</th>
+                            <th class="col-2">PATRIMONIO</th>
+                            <th class="col-1p75">NF IT2B</th>
+                            <th class="col-2p25">DT. NF IT2B</th>
+                            <th class="col-5p5">DESCRIÇÃO DA MERCADORIA</th>
+                            <th class="col-1p25">QUANT.</th>
+                            <th class="col-1p99">VALOR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="equipamento_chamado1"></td>
+                            <td id="equipamento_patrimonio1"></td>
+                            <td id="equipamento_nf1"></td>
+                            <td id="equipamento_data_nf1"></td>
+                            <td id="equipamento_descricao1"></td>
+                            <td id="equipamento_quantidade1"></td>
+                            <td id="equipamento_valor_unitario1"></td>
+                        </tr>
+                        <tr>
+                            <td id="equipamento_chamado2"></td>
+                            <td id="equipamento_patrimonio2"></td>
+                            <td id="equipamento_nf2"></td>
+                            <td id="equipamento_data_nf2"></td>
+                            <td id="equipamento_descricao2"></td>
+                            <td id="equipamento_quantidade2"></td>
+                            <td id="equipamento_valor_unitario2"></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+
+                            <td colspan="6" style="font-weight: bold;">
+                                TOTAL
+                            </td>
+                            <td id="valor_total"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <br>
+                <br>
+                <span class="fs-10pt" id="cidade_dia"></span>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div style="display: flex;" class="w-100 fs-10pt">
+                    <div style="width: 50%;">
+                        Responsável TJSP - assinatura
+                        <br>Nome: <span name="usuario_nome" id="usuario_nome"></span>
+                        <br>Cargo: <span name="usuario_cargo" id="usuario_cargo"></span>
+                        <br>Setor: <span name="usuario_setor" id="usuario_setor"></span>
+                        <br>Carimbo
+                    </div>
+                    <div style="width: 50%;">
+                        Técnico IT2B - assinatura
+                        <br>Nome: <span name="tecnico_nome" id="tecnico_nome"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

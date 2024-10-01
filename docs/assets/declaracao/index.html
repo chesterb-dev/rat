@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declaração Correios</title>
+    <link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            border-collapse: collapse;
+            font-family: 'Trebuchet MS';
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            width: 21cm;
+            height: 29.7cm;
+            padding: 1.27cm 2.5cm 1.27cm 2cm;
+        }
+
+        tr,
+        td {
+            font-size: 10pt;
+        }
+
+        tr.border-start {
+            border-top: 2.5px solid;
+            border-right: 2.5px solid;
+            border-left: 2.5px solid;
+        }
+
+        tr.border-middle {
+            border-right: 2.5px solid;
+            border-left: 2.5px solid;
+        }
+
+        tr.border-end {
+            border-bottom: 2.5px solid;
+            border-right: 2.5px solid;
+            border-left: 2.5px solid;
+        }
+
+        td.info {
+            font-weight: bold;
+        }
+
+        tr.line-separator {
+            border-bottom: 2px solid;
+            height: 5px;
+        }
+
+        tr.space-separator {
+            border-bottom: 2px solid;
+            height: 5px;
+        }
+
+        td.subtitle {
+            background-color: gainsboro;
+            text-align: center;
+            font-size: 11pt;
+            font-weight: bold;
+            letter-spacing: 1.6pt;
+        }
+
+        table {
+            width: 16cm;
+        }
+
+        td.table-borders {
+            border-left: 2px solid;
+            border-right: 2px solid;
+            border-bottom: 1px solid;
+            height: 16.36px;
+        }
+
+        .full-border {
+            border: 2px solid;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .white-space {
+            color: white;
+        }
+
+        .text-normal {
+            text-transform: none;
+        }
+
+        .border-top {
+            border-top: 1px solid;
+        }
+
+        .fs-8 {
+            font-size: 8pt;
+        }
+
+        .fs-9 {
+            font-size: 9pt;
+        }
+
+        .fs-10 {
+            font-size: 10pt;
+        }
+
+        .left-padding {
+            padding-left: 5px;
+        }
+
+        .right-padding {
+            padding-right: 5px;
+        }
+
+        .side-padding {
+            padding: 1px 5px;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .justify {
+            text-align: justify;
+        }
+
+        .description-fs {
+            font-family: 'century-gothic';
+        }
+
+        .min-lineheight {
+            line-height: 15px;
+        }
+
+        .short-spacing {
+            word-spacing: -1px;
+        }
+
+        #logo_correios {
+            /* border: 1px solid; */
+            height: 1cm;
+            width: 4.69cm;
+            margin-left: 10px;
+        }
+
+        #header {
+            /* padding-right: 10px; */
+            text-align: end;
+            font-size: 22pt;
+            font-weight: bold;
+            letter-spacing: -1px;
+        }
+
+        #header>span {
+            margin-right: .4cm;
+        }
+
+        span[id^='remetente_'],
+        span[id^='destinatario_'] {
+            padding-left: 12px;
+            word-spacing: -2px;
+        }
+
+        .cep {
+            border-left: 2px solid;
+            padding-left: 5px;
+        }
+
+        .col-30px {
+            width: 30px;
+        }
+
+        span[id^='equipamento_'] {
+            height: 16.36px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+                <td class="col-30px"></td>
+            </tr>
+            <tr>
+                <td colspan="7"><img src="./correios.jpg" id="logo_correios"></td>
+                <td colspan="14" id="header">
+                    <span>
+                        Declaração de Conteúdo
+                    </span>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- REMETENTE -->
+            <tr class="border-start">
+                <td class="info side-padding" colspan="3">REMETENTE:</td>
+                <td colspan="17">
+                    <span id="remetente_nome"></span>
+                </td>
+            </tr>
+            <tr class="border-middle border-top">
+                <td class="info side-padding" colspan="3">CPF/CNPJ:</td>
+                <td colspan="17">
+                    <span id="remetente_cnpj"></span>
+                </td>
+            </tr>
+            <tr class="border-middle border-top">
+                <td class="info side-padding" colspan="3">ENDEREÇO:</td>
+                <td colspan="17">
+                    <span id="remetente_endereco"></span>
+                </td>
+            </tr>
+            <tr class="border-end border-top">
+                <td class="info side-padding" colspan="3">CIDADE:</td>
+                <td colspan="11">
+                    <span id="remetente_cidade"></span>
+                </td>
+                <td class="cep" colspan="1">CEP:</td>
+                <td colspan="6">
+                    <span id="remetente_cep"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="21">&nbsp;</td>
+            </tr>
+            <!-- DESTINATÁRIO -->
+            <tr class="border-start">
+                <td class="info side-padding fs-8" colspan="3">DESTINATÁRIO:</td>
+                <td colspan="17">
+                    <span id="destinatario_nome"></span>
+                </td>
+            </tr>
+            <tr class="border-middle border-top">
+                <td class="info side-padding" colspan="3">CPF/CNPJ:</td>
+                <td colspan="17">
+                    <span id="destinatario_cnpj"></span>
+                </td>
+            </tr>
+            <tr class="border-middle border-top">
+                <td class="info side-padding" colspan="3">ENDEREÇO:</td>
+                <td colspan="17">
+                    <span id="destinatario_endereco"></span>
+                </td>
+            </tr>
+            <tr class="border-end border-top">
+                <td class="info side-padding" colspan="3">CIDADE:</td>
+                <td colspan="11">
+                    <span id="destinatario_cidade"></span>
+                </td>
+                <td colspan="1" class="cep">CEP:</td>
+                <td colspan="6">
+                    <span id="destinatario_cep"></span>
+                </td>
+            </tr>
+            <tr class="line-separator"></tr>
+            <tr class="line-separator"></tr>
+            <tr class="line-separator"></tr>
+            <tr>
+                <td class="subtitle table-borders" colspan="21">
+                    IDENTIFICAÇÃO DOS BENS
+                </td>
+            </tr>
+            <tr>
+                <td colspan="12" class="table-borders text-center bold">DISCRIMINAÇÃO DO CONTEÚDO</td>
+                <td colspan="5" class="table-borders text-center bold">QUANTIDADE</td>
+                <td colspan="4" class="table-borders text-center bold">PESO</td>
+            </tr>
+            <tr>
+                <td colspan="12" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_descricao1"></span>
+                </td>
+                <td colspan="5" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_quantidade1"></span>
+                </td>
+                <td colspan="4" class="table-borders text-center">
+                    <span class="description-fs bold" id="equipamento_peso1"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="12" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_descricao2"></span>
+                </td>
+                <td colspan="5" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_quantidade2"></span>
+                </td>
+                <td colspan="4" class="table-borders text-center">
+                    <span class="description-fs bold" id="equipamento_peso2"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="12" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_descricao3"></span>
+                </td>
+                <td colspan="5" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_quantidade3"></span>
+                </td>
+                <td colspan="4" class="table-borders text-center">
+                    <span class="description-fs bold" id="equipamento_peso3"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="12" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_descricao4"></span>
+                </td>
+                <td colspan="5" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_quantidade4"></span>
+                </td>
+                <td colspan="4" class="table-borders text-center">
+                    <span class="description-fs bold" id="equipamento_peso4"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="12" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_descricao5"></span>
+                </td>
+                <td colspan="5" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_quantidade5"></span>
+                </td>
+                <td colspan="4" class="table-borders text-center">
+                    <span class="description-fs bold" id="equipamento_peso5"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="12" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_descricao6"></span>
+                </td>
+                <td colspan="5" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_quantidade6"></span>
+                </td>
+                <td colspan="4" class="table-borders text-center">
+                    <span class="description-fs bold" id="equipamento_peso6"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="12" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_descricao7"></span>
+                </td>
+                <td colspan="5" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_quantidade7"></span>
+                </td>
+                <td colspan="4" class="table-borders text-center">
+                    <span class="description-fs bold" id="equipamento_peso7"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="12" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_descricao8"></span>
+                </td>
+                <td colspan="5" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_quantidade8"></span>
+                </td>
+                <td colspan="4" class="table-borders text-center">
+                    <span class="description-fs bold" id="equipamento_peso8"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="12" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_descricao9"></span>
+                </td>
+                <td colspan="5" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_quantidade9"></span>
+                </td>
+                <td colspan="4" class="table-borders text-center">
+                    <span class="description-fs bold" id="equipamento_peso9"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="12" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_descricao10"></span>
+                </td>
+                <td colspan="5" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_quantidade10"></span>
+                </td>
+                <td colspan="4" class="table-borders text-center">
+                    <span class="description-fs bold" id="equipamento_peso10"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="12" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_descricao11"></span>
+                </td>
+                <td colspan="5" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_quantidade11"></span>
+                </td>
+                <td colspan="4" class="table-borders text-center">
+                    <span class="description-fs bold" id="equipamento_peso11"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="12" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_descricao12"></span>
+                </td>
+                <td colspan="5" class="table-borders text-center">
+                    <span class="description-fs" id="equipamento_quantidade12"></span>
+                </td>
+                <td colspan="4" class="table-borders text-center">
+                    <span class="description-fs bold" id="equipamento_peso12"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="17" class="full-border text-center bold">VALOR TOTAL</td>
+                <td colspan="4" class="full-border text-center">
+                    <span class="description-fs" id="valor_total"></span>
+                </td>
+            </tr>
+            <tr class="space-separator">
+            </tr>
+            <tr class="border-start">
+                <td colspan="21" class="subtitle" style="border-bottom: 1px solid;">DECLARAÇÃO</td>
+            </tr>
+
+            <tr class="border-middle">
+                <td colspan="21">
+                    <div class="justify fs-9 short-spacing" style="padding: 10px 5px; line-height: .40cm;">
+                        <span class="white-space">_______</span>Declaro, não ser pessoa física ou jurídica, que realize,
+                        com habitualidade ou em volume que
+                        caracterize intuito comercial, operações de circulação de mercadoria, ainda que estas se iniciem
+                        no exterior,
+                        que o conteúdo declarado e não está sujeito à tributação, e que sou o único responsável por
+                        eventuais
+                        penalidades ou danos decorrentes de informações inverídicas.
+                    </div>
+                </td>
+            </tr>
+
+            <tr class="border-end">
+                <td colspan="21">
+                    <div style="display: flex; line-height: 17px;">
+                        <div style="width: 50%; padding: 0 0 .4cm .4cm">
+                            <span id="cidade_dia"></span>
+                        </div>
+                        <div style="width: 50%; text-align: end; padding-right: 0.3cm">
+                            <span>_______________________________</span><br>
+                            <span>Assinatura do Declarante/Remetente</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr class="space-separator"></tr>
+            <tr class="border-start">
+                <td colspan="21" class="text-normal fs-9"><span
+                        class="fs-10 text-normal side-padding bold">Atenção</span>O
+                    declarante/remetente é responsável exclusivamente pelas informações declaradas.</td>
+            </tr>
+            <tr class="border-start">
+                <td colspan="21" class="left-padding bold">OBSERVAÇÕES:</td>
+            </tr>
+            <tr class="border-middle">
+                <td class="left-padding" style="align-content: start;" colspan="2"><b>I.</b></td>
+                <td class="right-padding text-normal justify fs-8 min-lineheight short-spacing" colspan="20">É
+                    Contribuinte de ICMS
+                    qualquer pessoa
+                    física
+                    ou
+                    jurídica,
+                    que realize, com habitualidade ou em
+                    volume que caracterize intuito comercial, operações de circulação de mercadoria ou prestações de
+                    serviços de transportes interestadual e intermunicipal e de comunicação, ainda que as operações e
+                    prestações se iniciem no exterior (Lei Complementar nº 87/96 Art. 4º).</td>
+            </tr>
+            <tr class="border-end">
+                <td class="left-padding" style="align-content: start;" colspan="2"><b>II.</b></td>
+                <td class="right-padding text-normal justify fs-8 min-lineheight short-spacing" colspan="20">Constitui
+                    crime contra a
+                    ordem
+                    tributária
+                    suprimir ou reduzir tributo, ou contribuição social e qualquer acessório: quando negar ou deixar de
+                    fornecer, quando obrigatório, nota fiscal ou documento equivalente, relativa a venda de mercadoria
+                    ou prestação de serviço, efetivamente realizada, ou fornecê-la em desacordo com a <u>legislação</u>.
+                    Sob
+                    pena de reclusão de 2 (dois) a 5 (anos), e multa (Lei 8.137/90 Art. 1º, V).</td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAT IT2B</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <form action="" method="get">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="4" rowspan="4"><img src="it2b.png" /></th>
+          <th colspan="12" rowspan="4">
+            RELATÓRIO DE ATENDIMENTO TÉCNICO - RAT
+          </th>
+          <th colspan="5" rowspan="4">
+            <div class="cell-legend">Nº CHAMADO CLIENTE</div>
+            <div class="header-data" style="border-bottom: 1px solid black">
+              <span id="chamado_cliente"></span>
+            </div>
+            <div class="cell-legend">Nº CHAMADO IT2B</div>
+            <div class="header-data">
+              <span id="chamado_it2b"></span>
+            </div>
+          </th>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+      </thead>
+      <tbody>
+        <tr class="separator">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <!-- DADOS CLIENTE -->
+        <tr>
+          <td colspan="16">
+            <div class="cell-legend">CLIENTE</div>
+            <div class="header-data">
+              <span id="cliente_nome"></span>
+            </div>
+          </td>
+          <td colspan="5">
+            <div class="cell-legend">TELEFONE / RAMAL</div>
+            <div class="header-data">
+              <span id="cliente_telefone"></span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="13">
+            <div class="cell-legend">ENDEREÇO</div>
+            <div class="header-data">
+              <span id="cliente_endereco"></span>
+            </div>
+          </td>
+          <td colspan="4">
+            <div class="cell-legend">BAIRRO</div>
+            <div class="header-data">
+              <span id="cliente_bairro"></span>
+            </div>
+          </td>
+          <td colspan="4">
+            <div class="cell-legend">CIDADE</div>
+            <div class="header-data">
+              <span id="cliente_cidade"></span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="21">
+            <div class="cell-legend">ANDAR / SALA</div>
+            <div class="header-data">
+              <span id="cliente_andar"></span>
+            </div>
+          </td>
+        </tr>
+        <tr class="separator">
+          <td colspan="21"></td>
+        </tr>
+        <tr>
+          <td colspan="21" class="text-separator">DADOS DO EQUIPAMENTO</td>
+        </tr>
+        <!-- DADOS EQUIPAMENTO -->
+        <tr style="text-align: center">
+          <td colspan="4">
+            <div class="cell-header" style="font-size: x-small; padding: 3.5px 0px">
+              FORNECEDOR/FABRICANTE
+            </div>
+            <div class="header-data">
+              <span id="fornecedor_equipamento"></span>
+            </div>
+          </td>
+          <td colspan="4">
+            <div class="cell-header">TIPO</div>
+            <div class="header-data">
+              <span id="tipo_equipamento"></span>
+            </div>
+          </td>
+          <td colspan="4">
+            <div class="cell-header">PATRIMONIO</div>
+            <div class="header-data">
+              <span id="patrimonio_equipamento"></span>
+            </div>
+          </td>
+          <td colspan="5">
+            <div class="cell-header">SÉRIE</div>
+            <div class="header-data">
+              <span id="serie_equipamento"></span>
+            </div>
+          </td>
+          <td colspan="4">
+            <div class="cell-header">MODELO</div>
+            <div class="header-data">
+              <span id="modelo_equipamento"></span>
+            </div>
+          </td>
+        </tr>
+        <tr class="separator">
+          <td colspan="21"></td>
+        </tr>
+        <tr>
+          <td colspan="21" class="cell-legend">MOTIVO DO CHAMADO:</td>
+        </tr>
+        <tr>
+          <td class="cell-data h2p5" colspan="21">
+            <div class="text-justify" id="motivo_chamado"></div>
+          </td>
+        </tr>
+        <tr class="separator">
+          <td colspan="21"></td>
+        </tr>
+        <tr>
+          <td colspan="21" class="cell-legend">ANORMALIDADE CONSTATADA:</td>
+        </tr>
+        <tr>
+          <td class="cell-data h2p5" colspan="21" id="anormalidade_constatada">
+            <div id="anormalidade_constatada" class="text-justify"></div>
+          </td>
+        </tr>
+        <tr class="separator">
+          <td colspan="21"></td>
+        </tr>
+        <tr>
+          <td colspan="21" class="cell-legend">
+            ATIVIDADES EXECUTADAS / OBSERVAÇÕES:
+          </td>
+        </tr>
+        <tr>
+          <td class="cell-data h3p5" id="observacoes" colspan="21">
+            <div id="observacoes" class="text-justify"></div>
+          </td>
+        </tr>
+        <!-- <tr class="separator">
+          <td colspan="21"></td>
+        </tr> -->
+        <!-- <tr>
+          <td colspan="21" class="cell-legend">
+            CASO DE MAU USO DESCREVER NO ESPAÇO ABAIXO:
+          </td>
+        </tr>
+        <tr>
+          <td class="cell-data align-item" colspan="21" rowspan="5">
+            <textarea name="" id="mau_uso" cols="105" rows="4"></textarea>
+          </td>
+        </tr> -->
+        <!-- <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr> -->
+        <!-- <tr class="separator">
+          <td colspan="21"></td>
+        </tr> -->
+        <!-- <tr>
+          <td class="no-border-right" colspan="9">
+            Chamado Finalizado: <input class="w-60" type="text" name="" id="chamado_finalizado">
+          </td>
+          <td colspan="12">
+            Tensão A/C:F/N ( <span id="tensao_fn"></span> ) F/T ( <span id="tensao_ft"></span> ) N/T ( <span
+              id="tensao_nt"></span> )
+          </td>
+        </tr> -->
+        <!-- <tr>
+          <td colspan="21">
+            Contador de Páginas - inicial(
+            <input type="text" name="" id="cont-inicial-pag" class="w-80 center" />
+            ) Final(
+            <input type="text" name="" id="cont-final-pag" class="w-80 center" />
+            ) Firmware Ver.(
+            <input type="text" name="" id="firmware-ver" class="center" />
+            )
+          </td>
+        </tr>
+        <tr>
+          <td class="no-border-right" colspan="10">
+            Equipamento Operacional: <input class="w-60" type="text" name="" id="equipamento_operacional">
+          <td colspan="11">
+            Número de IP(
+            <input type="text" name="" id="numero_ip" class="center" />
+            )
+          </td>
+        </tr>
+        <tr>
+          <td colspan="21">
+            Necessário Substituição de Peças: <input class="w-60" type="text" name="" id="substituicao_pecas">
+          </td>
+        </tr>
+        <tr>
+          <td class="no-border-right">PN:</td>
+          <td class="pn-data" colspan="6">
+            <input type="text" name="" id="partnumber_1" />
+          </td>
+          <td class="no-border-right">PN:</td>
+          <td class="pn-data" colspan="6">
+            <input type="text" name="" id="partnumber_2" />
+          </td>
+          <td class="no-border-right">PN:</td>
+          <td class="pn-data" colspan="6">
+            <input type="text" name="" id="partnumber_3" />
+          </td>
+        </tr>
+        <tr>
+          <td class="no-border-right">PN:</td>
+          <td class="pn-data" colspan="6">
+            <input type="text" name="" id="partnumber_4" />
+          </td>
+          <td class="no-border-right">PN:</td>
+          <td class="pn-data" colspan="6">
+            <input type="text" name="" id="partnumber_5" />
+          </td>
+          <td class="no-border-right">PN:</td>
+          <td class="pn-data" colspan="6">
+            <input type="text" name="" id="partnumber_6" />
+          </td>
+        </tr> -->
+        <tr class="separator">
+          <td colspan="21"></td>
+        </tr>
+        <tr>
+          <td colspan="7">ATENDIMENTO</td>
+          <td colspan="7">DATA: <span id="data_abertura"></span></td>
+          <td colspan="7">HORA: <span id="hora_abertura"></span></td>
+        </tr>
+        <tr>
+          <td colspan="7">FECHAMENTO</td>
+          <td colspan="7">DATA: <span id="data_fechamento"></span></td>
+          <td colspan="7">HORA: <span id="hora_fechamento"></span></td>
+        </tr>
+        <tr class="separator">
+          <td colspan="21"></td>
+        </tr>
+        <tr>
+          <td class="text-separator" colspan="21">CLIENTE</td>
+        </tr>
+        <tr>
+          <td colspan="14">NOME LEGÍVEL: <span id="nome_usuario"></span></td>
+          <td colspan="7">MATRÍCULA: <span id="matricula_usuario"></span></td>
+        </tr>
+        <tr>
+          <td colspan="7">DATA:</td>
+          <td colspan="7">HORA:</td>
+          <td colspan="7">VISTO:</td>
+        </tr>
+        <tr class="separator">
+          <td colspan="21"></td>
+        </tr>
+        <tr>
+          <td class="text-separator" colspan="21">TÉCNICO</td>
+        </tr>
+        <tr>
+          <td colspan="14">NOME LEGÍVEL: <span id="nome_tecnico"></span></td>
+          <td colspan="7">RG: <span id="rg_tecnico"></span></td>
+        </tr>
+        <tr>
+          <td colspan="7">DATA:</td>
+          <td colspan="7">HORA:</td>
+          <td colspan="7">VISTO:</td>
+        </tr>
+      </tbody>
+      <!-- <tfoot class="form-btn">
+                <tr>
+                    <td rowspan="2" colspan="21">
+                        <div style="float: left;">
+                            <button type="button" onclick="(window.print())">Imprimir</button>
+                            <button type="submit">Salvar</button>
+                            <button type="reset">Limpar</button>
+                            <button onclick="openModal()" type="button">Consultar</button>
+                        </div>
+                        <div style="float: right;">
+                            <button type="button" onclick="localStorageBackup()">Backup</button>
+                            <button type="button" onclick="localStorageRestore()">Restaurar</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr></tr>
+            </tfoot> -->
+    </table>
+  </form>
+  <!-- <div id="modalConsulta" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal()" class="close">&times;</span>
+            <input type="text" name="" id="valorConsulta" placeholder="Nº CHAMADO IT2B">
+            <button type="button" onclick="consultar()">Buscar</button>
+        </div>
+    </div> -->
+  <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>

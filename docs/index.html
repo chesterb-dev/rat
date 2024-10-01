@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT Utilities</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="styles/rat.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand bg-body-secondary mb-3">
+    <div class="container-fluid">
+      <a class="navbar-brand">IT Utilities</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="./index.html">RAT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./reversa.html">Reversa</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex pe-2">
+      <input type="file" id="uploadFile">
+    </div>
+  </nav>
+  <div class="container bg-body-secondary p-3 rounded-2">
+    <div class="my-4 d-flex justify-content-between align-items-center">
+      <div class="fs-5">Relatório de Atendimento Técnico (RAT)</div>
+      <button class="btn btn-primary" onclick="openModal()" id="btnIncluir">
+        Incluir
+      </button>
+    </div>
+    <div class="mb-3 d-flex">
+      <div class="align-self-center me-2">
+        <i class="bi bi-funnel"></i>
+      </div>
+      <div class="me-2">
+        <input id="searchByTicket" onkeyup="searchRat(event)" class="form-control" type="search"
+          placeholder="Chamado IT2B" />
+      </div>
+      <!-- <div>
+        <select class="form-select" id="equipamento">
+          <option selected>Equipamento</option>
+        </select>
+      </div> -->
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr class="table-secondary">
+          <th scope="col">Chamado IT2B</th>
+          <th scope="col">Cidade</th>
+          <th scope="col">Tipo Equipamento</th>
+          <th scope="col">Anormalidade</th>
+          <th scope="col">Técnico</th>
+          <th scope="col">Data fech.</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Excluir</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div>
+      <button class="btn btn-secondary" id="downloadJson">Download JSON</button>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="rat" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">
+            Relatório de Atendimento Técnico
+          </h5>
+          <button type="button" class="btn-close" aria-label="Close" onclick="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="row">
+              <div class="col-2">
+                <h6>Chamado</h6>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <div class="col">
+                    <label class="form-label" for="chamado_cliente">Chamado cliente
+                    </label>
+                    <input class="form-control" type="text" id="chamado_cliente" name="chamado_cliente" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label" for="chamado_it2b">Chamado IT2B
+                    </label>
+                    <input class="form-control" type="text" id="chamado_it2b" name="chamado_it2b" />
+                  </div>
+                  <!-- <div class="col">
+                    <input class="form-check-input" type="checkbox" name="chamado_finalizado" id="chamado_finalizado" />
+                    <label class="form-check-label" for="chamado_finalizado">Chamado finalizado
+                    </label>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+
+            <hr />
+            <div class="row">
+              <div class="col-2">
+                <h6>Cliente</h6>
+              </div>
+              <div class="col">
+                <div class="row mb-3">
+                  <div class="col">
+                    <label class="form-label" for="cliente_nome">Nome </label>
+                    <input class="form-control" type="text" id="cliente_nome" name="cliente_nome" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label" for="cliente_telefone">Telefone
+                    </label>
+                    <input class="form-control" type="text" id="cliente_telefone" name="cliente_telefone" />
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col">
+                    <label class="form-label" for="cliente_endereco">Endereço
+                    </label>
+                    <input class="form-control" type="text" id="cliente_endereco" name="cliente_endereco" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label" for="cliente_bairro">Bairro
+                    </label>
+                    <input class="form-control" type="text" id="cliente_bairro" name="cliente_bairro" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label class="form-label" for="cliente_cidade">Cidade
+                    </label>
+                    <input class="form-control" type="text" id="cliente_cidade" name="cliente_cidade" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label" for="cliente_andar">Andar
+                    </label>
+                    <input class="form-control" type="text" id="cliente_andar" name="cliente_andar" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+              <div class="col-2">
+                <h6>Equipamento</h6>
+              </div>
+              <div class="col">
+                <!-- <div class="row mb-3">
+                  <div class="col">
+                    <input class="form-check-input" type="checkbox" name="equipamento_operacional"
+                      id="equipamento_operacional" />
+                    <label class="form-check-label" for="equipamento_operacional">Equipamento operacional
+                    </label>
+                  </div>
+                </div> -->
+                <div class="row mb-3">
+                  <div class="col">
+                    <label class="form-label" for="fornecedor">Fornecedor
+                    </label>
+                    <input class="form-control" type="text" id="fornecedor_equipamento" name="fornecedor_equipamento" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label" for="tipo">Tipo </label>
+                    <input class="form-control" type="text" id="tipo_equipamento" name="tipo_equipamento" />
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="col">
+                    <label class="form-label" for="patrimonio">Patrimônio
+                    </label>
+                    <input class="form-control" type="text" id="patrimonio_equipamento" name="patrimonio_equipamento" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label" for="serie">Série </label>
+                    <input class="form-control" type="text" id="serie_equipamento" name="serie_equipamento" />
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="col">
+                    <label class="form-label" for="modelo">Modelo </label>
+                    <input class="form-control" type="text" id="modelo_equipamento" name="modelo_equipamento" />
+                  </div>
+                  <div class="col">
+                    <!-- <label class="form-label" for="numero_ip">Número de IP
+                    </label>
+                    <input class="form-control" type="text" id="numero_ip" name="numero_ip" /> -->
+                  </div>
+                </div>
+                <!-- <div class="row">
+                  <div class="col">
+                    <label class="form-label" for="tensao_fn">Tensão Fase/Neutro
+                    </label>
+                    <input class="form-control" type="text" id="tensao_fn" name="tensao_fn" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label" for="tensao_ft">Tensão Fase/Terra
+                    </label>
+                    <input class="form-control" type="text" id="tensao_ft" name="tensao_ft" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label" for="tensao_nt">Tensão Neutro/Terra
+                    </label>
+                    <input class="form-control" type="text" id="tensao_nt" name="tensao_nt" />
+                  </div>
+                </div> -->
+              </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+              <div class="col-2">
+                <h6>Descrição de problemas</h6>
+              </div>
+              <div class="col">
+                <div class="row mb-3">
+                  <div class="col">
+                    <label class="form-label" for="motivo_chamado">Motivo do chamado
+                    </label>
+                    <textarea class="form-control" name="motivo_chamado" id="motivo_chamado"></textarea>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="col">
+                    <label class="form-label" for="anormalidade_constatada">Anormalidades
+                    </label>
+                    <textarea class="form-control" name="anormalidade_constatada"
+                      id="anormalidade_constatada"></textarea>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="col">
+                    <label class="form-label" for="observacoes">Observações
+                    </label>
+                    <textarea class="form-control" name="observacoes" id="observacoes"></textarea>
+                  </div>
+                </div>
+
+                <!-- <div class="row">
+                  <div class="col">
+                    <label class="form-label" for="mau_uso">Mau uso </label>
+                    <textarea class="form-control" name="mau_uso" id="mau_uso"></textarea>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+
+            <!-- <hr />
+            <div class="row">
+              <div class="col-2">
+                <h6>Pedido de peça</h6>
+              </div>
+              <div class="col">
+                <div class="row mb-3">
+                  <div class="col">
+                    <label class="form-label" for="partnumber_1">PN 1 </label>
+                    <input class="form-control" type="text" id="partnumber_1" name="partnumber_1" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label" for="partnumber_2">PN 2 </label>
+                    <input class="form-control" type="text" id="partnumber_2" name="partnumber_2" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label" for="partnumber_3">PN 3 </label>
+                    <input class="form-control" type="text" id="partnumber_3" name="partnumber_3" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label class="form-label" for="partnumber_4">PN 4 </label>
+                    <input class="form-control" type="text" id="partnumber_4" name="partnumber_4" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label" for="partnumber_5">PN 5 </label>
+                    <input class="form-control" type="text" id="partnumber_5" name="partnumber_5" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label" for="partnumber_6">PN 6 </label>
+                    <input class="form-control" type="text" id="partnumber_6" name="partnumber_6" />
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+            <hr />
+
+            <div class="row">
+              <div class="col-2">
+                <h6>Atendimento</h6>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <div class="col">
+                    <label class="form-label" for="data_abertura">Data início</label>
+                    <input class="form-control" type="datetime-local" id="data_abertura" name="data_abertura" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label" for="data_fechamento">Data fim
+                    </label>
+                    <input class="form-control" type="datetime-local" id="data_fechamento" name="data_fechamento" />
+                  </div>
+                  <div class="col"></div>
+                </div>
+              </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+              <div class="col-2">
+                <h6>Usuário</h6>
+              </div>
+              <div class="col">
+                <div class="row mb-3">
+                  <div class="col">
+                    <label class="form-label" for="nome_usuario">Nome </label>
+                    <input class="form-control" type="text" id="nome_usuario" name="nome_usuario" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label" for="matricula_usuario">Matrícula
+                    </label>
+                    <input class="form-control" type="text" id="matricula_usuario" name="matricula_usuario" />
+                  </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="col">
+                      <label class="form-label" for="data_usuario">Data </label>
+                      <input
+                        class="form-control"
+                        type="datetime-local"
+                        id="data_usuario"
+                        name="data_usuario"
+                      />
+                    </div>
+                    <div class="col"></div>
+                  </div> -->
+              </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+              <div class="col-2">
+                <h6>Técnico</h6>
+              </div>
+              <div class="col">
+                <div class="row mb-3">
+                  <div class="col">
+                    <label class="form-label" for="nome_tecnico">Nome </label>
+                    <input class="form-control" type="text" id="nome_tecnico" name="nome_tecnico" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label" for="rg_tecnico">RG </label>
+                    <input class="form-control" type="text" id="rg_tecnico" name="rg_tecnico" />
+                  </div>
+                </div>
+                <!-- <div class="row mb-3">
+                    <div class="col">
+                      <label class="form-label" for="data_tecnico">Data </label>
+                      <input
+                        class="form-control"
+                        type="datetime-local"
+                        id="data_tecnico"
+                        name="data_tecnico"
+                      />
+                    </div>
+                    <div class="col"></div>
+                  </div> -->
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" onclick="closeModal()">
+                Fechar
+              </button>
+              <button type="submit" class="btn btn-primary" id="btnSubmit">
+                Salvar
+              </button>
+              <button type="button" class="btn btn-light" id="btnPrint">
+                <i class="bi bi-printer"></i> Imprimir
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="./scripts/rat.js"></script>
+</body>
+
+</html>
