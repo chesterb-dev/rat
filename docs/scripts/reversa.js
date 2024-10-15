@@ -71,7 +71,7 @@ function listRat(items) {
     let selectTd = document.createElement("td");
     selectTd.classList.add("text-center")
     let selectBtn = document.createElement("button");
-    selectBtn.addEventListener('click', () => selectEquipamento(item.id))
+    selectBtn.addEventListener('click', () => selectEquipamento(item.chamado_it2b))
     selectBtn.innerHTML = '<i class="bi bi-pencil-square"></i>';
     selectTd.appendChild(selectBtn);
     row.appendChild(selectTd);
@@ -96,7 +96,7 @@ const searchRat = (e) => {
 }
 
 function selectEquipamento(id) {
-  let item = rat.find(i => i.id === id)
+  let item = rat.find(i => i.chamado_it2b === id)
 
   let equipamento_chamado = document.getElementById('equipamento_chamado');
   let equipamento_patrimonio = document.getElementById('equipamento_patrimonio');
@@ -270,7 +270,8 @@ btnPrintDeclaracao.addEventListener("click", () => {
     }
 
     const span_valor_total = printWindow.document.getElementById('valor_total');
-    span_valor_total.innerHTML = valor_total.toFixed(2);
+    span_valor_total.innerHTML = valor_total.toLocaleString('pt-br',
+      { minimumFractionDigits: 2 });
 
     printWindow.print();
     setTimeout(() => printWindow.close(), 0);
